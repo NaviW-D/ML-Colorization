@@ -1,10 +1,10 @@
 # پروژه رنگی‌سازی تصاویر (Colorful Image Colorization)
-**صفحه اصلی پروژه:** [richzhang.github.io/colorization](http://richzhang.github.io/colorization/)
 
-## توسعه‌دهنده و نگهدارنده مخزن
-**نام:** امیرعلی صلواتی (AmiraliSLH)  
-**ایمیل:** amiralisolati@example.com  
-**آخرین به‌روزرسانی:** دی ۱۴۰۳ (دسامبر ۲۰۲۴)
+
+
+**نام:** امیرعلی صالحی (AmiraliSLH)  
+**ایمیل:** amirali.salehi@icloud.com  
+**آخرین به‌روزرسانی:** دی ۱۴۰۴ (دسامبر۲۰۲۵)
 
 ---
 
