@@ -1,9 +1,7 @@
 # پروژه رنگی‌سازی تصاویر (Colorful Image Colorization)
 
 
-
-**نام:** امیرعلی صالحی (AmiraliSLH)  
-**ایمیل:** amirali.salehi@icloud.com  
+ 
 **آخرین به‌روزرسانی:** دی ۱۴۰۴ (دسامبر۲۰۲۵)
 
 ---
