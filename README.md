@@ -25,7 +25,7 @@ To get started, clone the repository and install the required dependencies:
 
 ```bash
 # Clone the repository
-git clone https://github.com/AmiraliSLH/ml-colorization-project.git
+git clone https://github.com/NaviW-D/ml-colorization-project.git
 
 # Navigate into the project directory
 cd ml-colorization-project
