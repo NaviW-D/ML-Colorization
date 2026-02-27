@@ -1,55 +1,81 @@
-# پروژه رنگی‌سازی تصاویر (Colorful Image Colorization)
 
+# Colorful Image Colorization Project
 
- 
-**آخرین به‌روزرسانی:** دی ۱۴۰۴ (دسامبر۲۰۲۵)
+**Last Update:** January 2026 (December 2025)
 
 ---
 
-### معرفی پروژه
-این مخزن شامل پیاده‌سازی به‌روز شده پروژه **رنگی‌سازی تصاویر** است که در ابتدا توسط ریچارد ژانگ، فیلیپ ایزولا و الکسی افروس توسعه یافته بود. همچنین قابلیت رنگی‌سازی خودکار از مقاله **SIGGRAPH 2017** با عنوان «رنگی‌سازی تعاملی تصاویر با استفاده از پیش‌فرض‌های عمیق یادگیری شده» به آن اضافه شده است.
+## Project Overview
 
-این نسخه برای استفاده آسان در زمان تست (Inference) با فریم‌ورک **PyTorch** بهینه شده است.
+This repository contains an updated implementation of the **Image Colorization** project originally developed by **Richard Zhang, Phillip Isola, and Alexei A. Efros**.
 
-![تصویر نمونه](http://richzhang.github.io/colorization/resources/images/teaser4.jpg)
+It also includes automatic colorization functionality from the **SIGGRAPH 2017** paper titled:
 
-### نصب و راه‌اندازی
-برای شروع، ابتدا مخزن را کلون کرده و نیازمندی‌های سیستم را نصب کنید:
+> *“Real-Time User-Guided Image Colorization with Learned Deep Priors”*
+
+This version has been optimized for easy inference using the **PyTorch** framework.
+
+![Sample Image](http://richzhang.github.io/colorization/resources/images/teaser4.jpg)
+
+---
+
+## Installation
+
+To get started, clone the repository and install the required dependencies:
 
 ```bash
-# کلون کردن مخزن
-git clone [https://github.com/AmiraliSLH/ml-colorization-project.git](https://github.com/AmiraliSLH/ml-colorization-project.git)
+# Clone the repository
+git clone https://github.com/AmiraliSLH/ml-colorization-project.git
 
-# ورود به پوشه پروژه
+# Navigate into the project directory
 cd ml-colorization-project
 
-# نصب کتابخانه‌های مورد نیاز
+# Install required libraries
 pip install -r requirements.txt
+```
 
-نحوه استفاده (رنگی‌سازی)
+---
 
-برای رنگی‌سازی یک تصویر دلخواه، اسکریپت زیر را اجرا کنید. نتایج نهایی در پوشه imgs_out ذخیره خواهند شد:
-Bash
+## Usage (Colorization)
 
+To colorize a custom image, run the following script.
+The final results will be saved in the `imgs_out` folder.
+
+```bash
 python demo_release.py -i imgs/ansel_adams3.jpg
+```
 
-بارگذاری مدل در پایتون
+---
 
-شما می‌توانید مدل‌های پیش‌آموزش‌دیده را مستقیماً در کدهای پایتون خود فراخوانی کنید. این فرآیند شامل تبدیل تصویر به فضای رنگی Lab، تغییر اندازه به 256x256 و در نهایت بازگرداندن به کیفیت اصلی در فضای RGB است.
-Python
+## Loading the Model in Python
 
+You can directly load the pretrained models into your Python code.
+
+The process includes:
+
+* Converting the image to **Lab color space**
+* Resizing it to **256×256**
+* Running inference
+* Converting the output back to **RGB space** at original resolution
+
+```python
 import colorizers
 
-# بارگذاری مدل ECCV 2016
+# Load ECCV 2016 model
 colorizer_eccv16 = colorizers.eccv16().eval()
 
-# بارگذاری مدل SIGGRAPH 2017
+# Load SIGGRAPH 2017 model
 colorizer_siggraph17 = colorizers.siggraph17().eval()
+```
 
-جزئیات فنی
+---
 
-    معماری: شبکه عصبی کانولوشنی عمیق (CNN).
+## Technical Details
 
-    فریم‌ورک: PyTorch (نسخه قدیمی Caffe دیگر پشتیبانی نمی‌شود).
+* **Architecture:** Deep Convolutional Neural Network (CNN)
+* **Framework:** PyTorch (legacy Caffe version is no longer supported)
+* **Processing Pipeline:**
+  Images are processed in **Lab color space**, separating:
 
-    پردازش: تصاویر در فضای رنگی Lab پردازش می‌شوند تا روشنایی (L) از اطلاعات رنگی (ab) تفکیک شود.
+  * **L channel** → luminance (brightness)
+  * **ab channels** → chrominance (color information)
